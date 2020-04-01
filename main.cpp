@@ -1,4 +1,9 @@
-int main()
-{
-    return 0;
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+
+int main(int argc, char *argv[]) {
+  QGuiApplication app(argc, argv);
+  QQmlApplicationEngine engine("qrc:/main.qml");
+
+  return QGuiApplication::exec();
 }
