@@ -5,8 +5,20 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+set(SOURCES
+        "backend/src/main.cpp"
+        "backend/src/TableModel.cpp")
+
+set(HEADERS
+        "backend/include/TableModel.h")
+
 add_subdirectory(frontend)
-add_executable(${PROJECT_NAME} main.cpp ${RESOURCES})
+add_executable(${PROJECT_NAME}
+        ${SOURCES}
+        ${HEADERS}
+        ${RESOURCES})
+target_include_directories(${PROJECT_NAME} PRIVATE
+        "backend/include")
 qt5_use_modules(${PROJECT_NAME} Quick)
 
 get_target_property(_qmake_executable Qt5::qmake IMPORTED_LOCATION)
